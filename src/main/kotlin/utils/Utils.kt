@@ -3,7 +3,7 @@ package utils
 import java.nio.file.InvalidPathException
 import java.nio.file.Paths
 
-fun String.isValidPath(): Boolean {
+fun String.fileExists(): Boolean {
     try {
         //TODO this is not working
         Paths.get(this);

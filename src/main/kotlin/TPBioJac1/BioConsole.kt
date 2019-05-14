@@ -1,9 +1,6 @@
 package TPBioJac1
 
-import commands.CommandType
-import commands.ExitCommand
-import commands.SecuenceProcessing
-import commands.UnknownCommand
+import commands.*
 
 class BioConsole {
 
@@ -14,10 +11,15 @@ class BioConsole {
             if(line != null && line.length > 0) {
                 val parts = line.split(" ")
 
-                return when(parts[0]) {
-                    "1" -> SecuenceProcessing(parts.takeLast(parts.size-1))
-                    "exit" -> ExitCommand()
-                    else -> UnknownCommand()
+                try {
+                    return when (parts[0]) {
+                        "1" -> SecuenceProcessing(parts.takeLast(parts.size - 1))
+                        "exit" -> ExitCommand()
+                        else -> UnknownCommand()
+                    }
+                }catch (e: InvalidCommandArgument) {
+                    println(e.message)
+                    return EmptyCommand()
                 }
 
             } else {

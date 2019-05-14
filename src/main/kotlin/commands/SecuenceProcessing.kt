@@ -1,29 +1,30 @@
 package commands
 
-import utils.isValidPath
+import utils.fileExists
+import java.io.File
 
 class SecuenceProcessing(val args: List<String>): CommandType {
 
+    val inputFile: File
+    val outputFile: File
+
     init {
-        println(args)
-    }
-
-    fun validateArguments(): Boolean {
         if(args.size != 2) {
-            println("Secuence Processing expects 2 arguments (inputFile and outputFile)")
-            return false
+            throw InvalidCommandArgument("Secuence Processing expects 2 arguments (inputFile and outputFile)")
         }
 
-        if(args.map { it.isValidPath() }.reduce { acc, b -> acc && b }) {
-            return false
+        inputFile = File(args[0])
+        if(!inputFile.exists()) {
+            throw InvalidCommandArgument("${args[0]} file does not exists")
         }
 
-        return true
+        outputFile = File(args[1])
+        if(!outputFile.createNewFile()) {
+            throw InvalidCommandArgument("${args[1]} file could not be created")
+        }
     }
 
     override fun execute() {
-        if(!validateArguments()) return
-
         println("Success")
     }
 
