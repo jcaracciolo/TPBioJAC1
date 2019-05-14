@@ -7,7 +7,6 @@ interface CommandType {
 
 class InvalidCommandArgument(message: String): Exception(message)
 
-
 class ExitCommand: CommandType {
 
     override fun execute() = throw NotImplementedError()
