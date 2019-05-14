@@ -53,6 +53,12 @@
             <artifactId>biojava-core</artifactId>
             <version>5.0.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.biojava</groupId>
+            <artifactId>biojava-ws</artifactId>
+            <version>5.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

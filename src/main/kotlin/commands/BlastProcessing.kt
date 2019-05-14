@@ -1,6 +1,14 @@
 package commands
 
+import org.biojava.nbio.core.sequence.DNASequence
+import org.biojava.nbio.core.sequence.ProteinSequence
+import org.biojava.nbio.core.sequence.compound.*
+import org.biojava.nbio.core.sequence.io.*
+import org.biojava.nbio.core.sequence.io.template.SequenceHeaderParserInterface
+import org.biojava.nbio.ws.alignment.RemotePairwiseAlignmentProperties
+import org.biojava.nbio.ws.alignment.qblast.*
 import java.io.File
+import java.lang.Exception
 
 class BlastProcessing(args: List<String>): CommandType {
     val inputFile: File
@@ -22,11 +30,49 @@ class BlastProcessing(args: List<String>): CommandType {
     }
 
     override fun execute() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //TODO Make it so it can use DNA sequences
+        //TODO Make it so it works local
+        println("Making request to Blas from file $inputFile saving to $outputFile")
+
+        val proxy = FastaReader(
+            inputFile,
+            PlainFastaHeaderParser<ProteinSequence, AminoAcidCompound>(),
+            ProteinSequenceCreator(AminoAcidCompoundSet())
+        )
+
+        val dnaSequences = proxy.process()
+
+        dnaSequences.entries.forEach { e ->
+            val name = e.key
+            val seq = e.value
+
+            try {
+                val blast = NCBIQBlastService()
+                val properties = NCBIQBlastAlignmentProperties()
+
+                properties.blastProgram = BlastProgramEnum.blastp
+                properties.blastDatabase = "swissprot"
+
+                println("Sending Sequence request for $name")
+
+                val id = blast.sendAlignmentRequest(seq.toString(), properties)
+                while (!blast.isReady(id)) {
+                    println("Waiting for results for $name..")
+                    Thread.sleep(5000)
+                }
+
+                val res = blast.getAlignmentResults(id, NCBIQBlastOutputProperties())
+                File(outputFile.path + "-$name").outputStream().use { res.copyTo(it) }
+
+                println("Done")
+            }catch (e: Exception) {
+                println("Failed to retrieve Blast for $name")
+            }
+
+            outputFile.delete()
+        }
     }
 
-    override fun isExit(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun isExit(): Boolean = false
 
 }
