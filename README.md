@@ -1,12 +1,12 @@
-#TP Introducción a la Bioinformática: Parte I
-###Configuración
+# TP Introducción a la Bioinformática: Parte I
+### Configuración
 `sudo apt-get install mvn`
 
 `mvn clean compile assembly:single`
 
 `java -jar target/TPBioJac1-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
-###Parámetros de ejecución
+### Parámetros de ejecución
 Para la traducción de secuencias de nucleótidos en GBK a secuencias de aminoácidos en FASTA ejecutar:
 
 `1 input_file output_file start_at_start_codon stop_at_stop_codon`
