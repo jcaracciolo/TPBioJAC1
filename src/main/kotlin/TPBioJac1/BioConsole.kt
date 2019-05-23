@@ -15,6 +15,7 @@ class BioConsole {
                     return when (parts[0]) {
                         "1" -> SecuenceProcessing(parts.takeLast(parts.size - 1))
                         "2" -> BlastProcessing(parts.takeLast(parts.size - 1))
+                        "3" -> MultiSequenceAlignment(parts.takeLast(parts.size - 1))
                         "exit" -> ExitCommand()
                         else -> UnknownCommand()
                     }
