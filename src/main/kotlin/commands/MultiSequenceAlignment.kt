@@ -48,8 +48,9 @@ internal class MultiSequenceAlignment(args: List<String>) : CommandType {
             e.printStackTrace();
         }
         val profile = Alignments.getMultipleSequenceAlignment(sequences);
-        println("Alignment:%n%s%n".format(profile));
-        ConcurrencyTools.shutdown();
+        outputFile.writeText(profile.toString())
+        ConcurrencyTools.shutdown()
+        println("Done")
     }
 
     override fun isExit(): Boolean = false
