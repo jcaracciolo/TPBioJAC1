@@ -74,7 +74,7 @@ class BlastProcessing(args: List<String>): CommandType {
     override fun execute() {
         //TODO Test DNA works
         //TODO Test it works local
-        println("Making request to Blas from file $inputFile saving to $outputFile")
+        println("Making request to Blast from file $inputFile saving to $outputFile")
 
         val proxy = if(blastType == BlastType.AMINOACID) {
             FastaReader(

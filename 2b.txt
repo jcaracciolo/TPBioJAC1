@@ -1,0 +1,38 @@
+Obtuvimos seis resultados BLAST distintos correspondientes a las secuencias FASTA provenientes de las seis formas distintas de lectura de la secuencia GenBank de la insulina. A partir de los BLAST podemos notar que hay dos resultados que no obtuvieron coincidencias al intentar alinearlos con otros genes y cuatro que si.
+
+Lectura del tipo ONE
+Con la lectura ONE obtuvimos las siguientes estadísticas:
+* 7 hits;
+* todos con un HSP score de entre 53 y 55.
+Si bien todos los HSP scores dieron parecidos, los e-values obtenidos fueron muy variados, siendo el de menor HSP score el que mayor e-value tuvo. Esto nos demuestra que si bien podemos obtener resultados parecidos en cuanto a alineamiento, no significa que todos tengan el mismo valor real (pues a menor e-value, más anómalo se considera el HSP score).
+(Podríamos meter un gráfico para poder hacer una comparación)
+
+Lectura del tipo REVERSED_ONE
+No obtuvo resultados.
+
+Lectura del tipo TWO
+Con la lectura TWO obtuvimos las siguientes estadísticas:
+* 5 hits;
+* todos con un HSP score de entre 54 y 61.
+Comparando con la lectura ONE, aquí empezamos a notar una ampliación del margen entre el HSP score mínimo y el máximo. Adicionalmente, podemos notar un comportamiento parecido al notado en la lectura ONE: a mayor HSP score, menor e-value.
+(Metería otro grafiquito del estilo del primero)
+
+Lectura del tipo REVERSED_TWO
+No obtuvo resultados.
+
+Lectura del tipo THREE
+Con la lectura THREE obtuvimos las siguientes estadísticas:
+* 100 hits;
+* todos con un HSP score de entre 112 y 569.
+Continuando con la ampliación del margen entre el HSP score mínimo y máximo, podemos notar el mismo comportamiento del e-value. (Che no se si este análisis está bien porque no creo que debería haber un patrón. Puede ser que este entendiendo mal qué significa el e-value.)
+(Pondría otro grafiquito del estilo.)
+
+Lectura del tipo REVERSED_THREE
+Con la lectura REVERSED_THREE obtuvimos las siguientes estadísticas:
+* 1 hit;
+* HSP score de 65.
+
+
+Viendo los gráficos, podemos notar que el hit con mayor e-value (el hit más representativo) fue obtenido en la lectura de tipo ONE, con un HSP score de 53.
+
+Mirar link: https://en.wikipedia.org/wiki/BLAST#Algorithm
