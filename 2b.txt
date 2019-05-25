@@ -3,7 +3,7 @@ Obtuvimos seis resultados BLAST distintos correspondientes a las secuencias FAST
 Lectura del tipo ONE
 Con la lectura ONE obtuvimos las siguientes estadísticas:
 * 7 hits;
-* todos con un HSP score de entre 53 y 55.
+* todos con un HSP( High-scoring Segment Pairs) score de entre 53 y 55.
 Si bien todos los HSP scores dieron parecidos, los e-values obtenidos fueron muy variados, siendo el de menor HSP score el que mayor e-value tuvo. Esto nos demuestra que si bien podemos obtener resultados parecidos en cuanto a alineamiento, no significa que todos tengan el mismo valor real (pues a menor e-value, más anómalo se considera el HSP score).
 (Podríamos meter un gráfico para poder hacer una comparación)
 
