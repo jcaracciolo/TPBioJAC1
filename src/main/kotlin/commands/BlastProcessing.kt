@@ -133,8 +133,8 @@ class BlastProcessing(args: List<String>): CommandType {
         sequences.forEach { (name, seq) ->
             try {
                 val pb = ProcessBuilder(
-                    localBlastDB,
-                    "-db", blastType.db,
+                    blastType.programName,
+                    "-db", localBlastDB,
                     "-outfmt", "5",
                     "-query", inputFile.absolutePath,
                     "-out", File(outputFile.path + "-$name").absolutePath

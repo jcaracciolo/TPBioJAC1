@@ -19,8 +19,8 @@ class SecuenceProcessing(args: List<String>): CommandType {
 
     val inputFile: File
     val outputFile: File
-    var startAtStartCodon: Boolean = false
-    var stopAtStopCodon: Boolean = false
+    var startAtStartCodon: Boolean = true
+    var stopAtStopCodon: Boolean = true
 
     init {
         if(args.size < 2) {
