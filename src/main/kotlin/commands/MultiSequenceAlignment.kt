@@ -35,22 +35,15 @@ internal class MultiSequenceAlignment(args: List<String>) : CommandType {
     }
     override fun execute() {
 
-        val sequencesMap: LinkedHashMap<String, ProteinSequence>
-        val sequences =  ArrayList<ProteinSequence>();
-
         try {
-            sequencesMap = FastaReaderHelper.readFastaProteinSequence(inputFile)
-            for ((key, value) in sequencesMap) {
-                sequences.add(value)
-            }
-
+            val sequencesMap = FastaReaderHelper.readFastaProteinSequence(inputFile)
+            val profile = Alignments.getMultipleSequenceAlignment(sequencesMap.values.toList())
+            outputFile.writeText(profile.toString())
+            ConcurrencyTools.shutdown()
         } catch (e : IOException) {
-            e.printStackTrace();
+            e.printStackTrace()
+            print(e.message)
         }
-        val profile = Alignments.getMultipleSequenceAlignment(sequences);
-        outputFile.writeText(profile.toString())
-        ConcurrencyTools.shutdown()
-        println("Done")
     }
 
     override fun isExit(): Boolean = false

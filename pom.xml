@@ -15,6 +15,8 @@
         <kotlin.version>1.3.31</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
         <junit.version>4.12</junit.version>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -66,6 +68,27 @@
             <version>4.1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.11</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.2.11</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.11</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -108,6 +131,32 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+
+            <!--THIS PLUGIN GENERATES THE BLASOUTPUT XML PARSER-->
+            <!--<plugin>-->
+                <!--<groupId>org.jvnet.jaxb2.maven2</groupId>-->
+                <!--<artifactId>maven-jaxb2-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>generate</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--&lt;!&ndash; if you want to put DTD somewhere else <schemaDirectory>src/main/jaxb</schemaDirectory> &ndash;&gt;-->
+                            <!--<schemaDirectory>src/main/dtd</schemaDirectory>-->
+                            <!--<generateDirectory>${basedir}/src/main/java</generateDirectory>-->
+                            <!--<extension>true</extension>-->
+                            <!--<schemaLanguage>DTD</schemaLanguage>-->
+                            <!--<schemaIncludes>-->
+                                <!--<schemaInclude>NCBI_BlastOutput.dtd</schemaInclude>-->
+                            <!--</schemaIncludes>-->
+                            <!--<bindingIncludes>-->
+                                <!--<bindingInclude>*.jaxb</bindingInclude>-->
+                            <!--</bindingIncludes>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 

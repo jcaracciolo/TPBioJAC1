@@ -88,8 +88,6 @@ class SecuenceProcessing(args: List<String>): CommandType {
         FastaWriter<OurAminoacidSequence, AminoAcidCompound>(outputFile.outputStream(), finalSequences) {
             return@FastaWriter it.name
         }.process()
-
-        println("Done")
     }
 
     override fun isExit(): Boolean = false

@@ -6,6 +6,7 @@ import org.biojava.nbio.core.sequence.compound.*
 import org.biojava.nbio.core.sequence.io.*
 import org.biojava.nbio.core.sequence.template.AbstractCompound
 import org.biojava.nbio.core.sequence.template.AbstractSequence
+import org.biojava.nbio.core.util.ConcurrencyTools
 import org.biojava.nbio.ws.alignment.qblast.*
 import java.io.File
 import java.lang.Exception
@@ -16,7 +17,7 @@ import java.io.BufferedReader
 
 class BlastProcessing(args: List<String>): CommandType {
     private val inputFile: File
-    private val outputFile: File
+    private val outputFile: String
     private val remoteRequest: Boolean
     private val blastType: BlastType
     private val localBlastDB: String
@@ -62,13 +63,15 @@ class BlastProcessing(args: List<String>): CommandType {
         }
 
         inputFile = File(args[0])
-        outputFile = File(args[1])
+        outputFile = args[1]
 
         if(!inputFile.exists())
             throw InvalidCommandArgument("${args[0]} does not exist")
 
-        if(!outputFile.createNewFile())
+        if(!File(outputFile).createNewFile())
             throw InvalidCommandArgument("${args[1]} could not be created")
+
+        File(outputFile).delete()
     }
 
     override fun execute() {
@@ -98,8 +101,6 @@ class BlastProcessing(args: List<String>): CommandType {
         } else {
             executeLocal(dnaSequences)
         }
-
-        outputFile.delete()
     }
 
     private fun executeRemote(sequences: List<Pair<String, AbstractSequence<out AbstractCompound>>>) {
@@ -120,7 +121,7 @@ class BlastProcessing(args: List<String>): CommandType {
                 }
 
                 val res = blast.getAlignmentResults(id, NCBIQBlastOutputProperties())
-                File(outputFile.path + "-$name").outputStream().use { res.copyTo(it) }
+                File("$outputFile-$name").outputStream().use { res.copyTo(it) }
 
                 println("Done for $name..")
             }catch (e: Exception) {
@@ -130,29 +131,28 @@ class BlastProcessing(args: List<String>): CommandType {
     }
 
     private fun executeLocal(sequences: List<Pair<String, AbstractSequence<out AbstractCompound>>>) {
-        sequences.forEach { (name, seq) ->
-            try {
-                val pb = ProcessBuilder(
-                    blastType.programName,
-                    "-db", localBlastDB,
-                    "-outfmt", "5",
-                    "-query", inputFile.absolutePath,
-                    "-out", File(outputFile.path + "-$name").absolutePath
-                )
+        try {
+            val pb = ProcessBuilder(
+                blastType.programName,
+                "-db", localBlastDB,
+                "-outfmt", "5",
+                "-query", inputFile.absolutePath,
+                "-out", File(outputFile).absolutePath
+            )
 
-                val p = pb.start()
+        val p = pb.start()
 
-                val stdError = BufferedReader(InputStreamReader(p.errorStream))
+        val stdError = BufferedReader(InputStreamReader(p.errorStream))
 
-                stdError.lines().forEach {
-                    println("Error when blasting $name locally - $it")
-                }
-
-                println("Done for $name..")
-            }catch (e: Exception) {
-                println("Failed to retrieve Blast for $name - ${e.message}")
-            }
+        stdError.lines().forEach {
+            println("Error when blasting locally - $it")
         }
+
+        }catch (e: Exception) {
+            println("Failed to retrieve local Blast - ${e.message}")
+        }
+
+        ConcurrencyTools.shutdown()
     }
 
     override fun isExit(): Boolean = false
