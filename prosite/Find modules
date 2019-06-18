@@ -1,0 +1,2 @@
+prosextract <path_to_prosite>
+patmatmotifs <input> <output>
