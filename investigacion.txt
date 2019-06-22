@@ -1,0 +1,19 @@
+a) https://www.ncbi.nlm.nih.gov/gene/1080
+Elegimos este gen por que es el gen realcionado con la fibrosis quistica.
+Este gen codifica el factor regulador de la fibrosis quística, que es una proteína
+que actúa a nivel de las membranas en el mecanismo de intercambio del ión cloro.
+Se conocen más de 700 mutaciones en este gen, siendo la DF508 la más frecuente (68% de los casos).
+
+La fibrosis quística es una enfermedad hereditaria que suele afectar al sistema respiratorio, páncreas
+y glándulas sudoríparas, suele comenzar en la infancia y se caracteriza por la presencia de infecciones
+respiratorias crónicas, insuficiencia pancreática y afectación de hígado y bazo.
+
+paper de fibrosis quistica y CFTR:
+http://www.neumologia-pediatrica.cl/wp-content/uploads/2017/06/CFTR.pdf
+
+b)
+https://www.ensembl.org/Multi/Search/Results?q=CFTR;site=ensembl_all;page=1;fall_strain=1;fall_species=1
+https://www.ncbi.nlm.nih.gov/homologene
+
+Segun lo que se ve aparece en vertebrados en homologene solo aparece para humano y dos mamals, pero en ensembl
+aparecen en un monton de organismos todos vertebrados y el que mas entradas tiene es en el raton.
