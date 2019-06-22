@@ -17,3 +17,8 @@ https://www.ncbi.nlm.nih.gov/homologene
 
 Segun lo que se ve aparece en vertebrados en homologene solo aparece para humano y dos mamals, pero en ensembl
 aparecen en un monton de organismos todos vertebrados y el que mas entradas tiene es en el raton.
+
+c) En clinvar se encuentran 1775 variaciones del gen
+https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000001626;r=7:117465784-117715971
+Segun el link de arriba hay 18 transcriptos para CFTR gen de los cuales solo 8 se expresan como
+proteinas(meter foto de la tablita esa en el ppt)
