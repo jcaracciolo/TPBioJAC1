@@ -17,7 +17,7 @@ echo -e "Domain analysis will be in: domainsOutput.txt\n";
 # generates traduction in traduction.fasta
 	transeq $1 traduction.fasta 2>> /dev/null;
 
-# prosextract
+# prosextract need to make sure that prosite is the relative path to prosite directory
 echo -e "prosite" | sudo prosextract 2>> /dev/null;
 
 #obtain domains
