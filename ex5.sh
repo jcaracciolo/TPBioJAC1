@@ -7,8 +7,7 @@ then
 #validate args cuantity
 	echo -e "Error:Wrong format\n\nUssage:\n\t./bio.sh fastaFile.fasta"
 else
-echo -e "\nMutated sequence will be in: output.fasta\nORF in: orf.fasta\nAlignment will be in: alignment.fasta\nGapped file is: gapped.fasta";
-echo -e "Traduction will be in: traduction.fasta\nAminoacid properties: structure.pdf\n";
+echo -e "Traduction will be in: traduction.fasta\n";
 
 #usar getorf para marcos de lectura abierto
 	echo -e "orf.fasta" | getorf $1 2>> /dev/null;
