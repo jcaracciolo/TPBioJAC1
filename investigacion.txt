@@ -3,6 +3,7 @@ Elegimos este gen por que es el gen realcionado con la fibrosis quistica.
 Este gen codifica el factor regulador de la fibrosis quística, que es una proteína
 que actúa a nivel de las membranas en el mecanismo de intercambio del ión cloro.
 Se conocen más de 700 mutaciones en este gen, siendo la DF508 la más frecuente (68% de los casos).
+Esta situado en el cromosoma 7 (locus 7q31.2).
 
 La fibrosis quística es una enfermedad hereditaria que suele afectar al sistema respiratorio, páncreas
 y glándulas sudoríparas, suele comenzar en la infancia y se caracteriza por la presencia de infecciones
@@ -21,4 +22,26 @@ aparecen en un monton de organismos todos vertebrados y el que mas entradas tien
 c) En clinvar se encuentran 1775 variaciones del gen
 https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=ENSG00000001626;r=7:117465784-117715971
 Segun el link de arriba hay 18 transcriptos para CFTR gen de los cuales solo 8 se expresan como
-proteinas(meter foto de la tablita esa en el ppt)
+proteinas(meter foto de la tablita esa en el ppt) y 2 son NMD(nonesense mediated decay) es decir son mutaciones
+terminadoras(crean codones de paro) para evitar la expresion de proteinas truncadas o erroneas.
+
+Si en la tablita tocamos al link de uniprot te lleva a la proteina y te dice la funcion pero parecen ser todas parecidas:
+https://www.uniprot.org/uniprot/P13569
+
+https://www.uniprot.org/uniprot/A0A3B3ITW0
+esta tiene otra funcion
+
+https://www.uniprot.org/uniprot/H0Y8A9
+esta tambien
+
+https://www.uniprot.org/uniprot/C9J6L5
+no dice su funcion
+
+https://www.uniprot.org/uniprot/M0QYZ3
+
+https://www.uniprot.org/uniprot/A0A024R730
+https://www.uniprot.org/uniprot/E7EPB6
+https://www.uniprot.org/uniprot/A0A3B3ITW5
+estas ultimas tres parecen decir lo mismo
+
+https://www.uniprot.org/uniprot/P13569
