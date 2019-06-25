@@ -43,3 +43,4 @@ Siendo:
 * `input_file` el nombre del archivo xml del output del Blast;
 * `pattern` el patron que se desea buscar;
 
+`Para ejecutar el ejercicio 5, correr ex5.sh fastaFile.fas`
