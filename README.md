@@ -35,3 +35,11 @@ Siendo:
 * `input_file` el nombre del archivo FASTA donde se encuentran las secuencias;
 * `output_file` el nombre del archivo donde se desea guardar el alineamiento;
 
+
+
+`4 input_file pattern`
+
+Siendo:
+* `input_file` el nombre del archivo xml del output del Blast;
+* `pattern` el patron que se desea buscar;
+

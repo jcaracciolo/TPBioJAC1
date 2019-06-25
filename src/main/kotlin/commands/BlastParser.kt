@@ -61,17 +61,7 @@ class BlastParser(args: List<String>): CommandType {
             print(e.message)
         }
     }
-//    fun getSequence(accesion: String) {
-//        RichSequence rs = null;
-//
-//        GenbankRichSequenceDB grsdb = new GenbankRichSequenceDB();
-//        try{
-//            // Demonstration of use with GenBank accession number
-//            rs = grsdb.getRichSequence("M98343");
-//            System.out.println(rs.getName()+" | "+rs.getDescription());
-//            SymbolList sl = rs.getInternalSymbolList();
-//            System.out.println(sl.seqString());
-//    }
+
     override fun isExit() = false
 
 }
